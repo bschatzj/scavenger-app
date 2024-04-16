@@ -13,15 +13,10 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{}}>
-      <Tabs.Screen name="index" />
-      <Tabs.Screen
-        name="two"
-        options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
+    <Tabs screenOptions={{ header: () => null }}>
+      <Tabs.Screen options={{ headerShown: false }} name="index" />
+      <Tabs.Screen options={{ headerShown: false }} name="two" />
+      <Tabs.Screen options={{ headerShown: false }} name="home" />
     </Tabs>
   );
 }
