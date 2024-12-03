@@ -1,10 +1,17 @@
 import Home from "@/pages/home";
-import { Text, View } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet } from "react-native";
 
 export default function TabTwoScreen() {
   return (
-    <View className="">
+    <View>
       <Home />
     </View>
   );
 }
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

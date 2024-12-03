@@ -1,3 +1,4 @@
+import { background } from "@/colors";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,
@@ -7,7 +8,9 @@ import {
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import React from "react";
 import { useEffect } from "react";
+import { SafeAreaView } from "react-native";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -48,8 +51,15 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="/tabs" options={{ headerShown: false }} />
-    </Stack>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingTop: 50,
+        backgroundColor: background.primary,
+      }}
+    >
+      <Stack initialRouteName="/tabs/" screenOptions={{ headerShown: false }} />
+    </SafeAreaView>
   );
 }
