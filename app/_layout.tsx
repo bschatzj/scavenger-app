@@ -1,16 +1,13 @@
 import { background } from "@/colors";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
+
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useRootNavigationState, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React from "react";
 import { useEffect } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View, Text, Button } from "react-native";
+import "../global.css";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -42,6 +39,10 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
+  const rootNavigationState = useRootNavigationState();
+
+  // if (!rootNavigationState?.key) return null;
+
   if (!loaded) {
     return null;
   }
@@ -50,16 +51,13 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const Router = useRouter();
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        paddingHorizontal: 20,
-        paddingTop: 50,
-        backgroundColor: background.primary,
-      }}
-    >
-      <Stack initialRouteName="/tabs/" screenOptions={{ headerShown: false }} />
+    <SafeAreaView style={{ flex: 1 }}>
+      <Stack initialRouteName="index" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
     </SafeAreaView>
   );
 }

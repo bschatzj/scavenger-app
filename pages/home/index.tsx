@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <View style={style.container}>
       <Text>Welcome to the scavenge.</Text>
-      <Button title="HI!" onPress={() => router.push("/tabs/")} />
+      <Button title="HI!" onPress={() => router.push("/(tabs)/settings")} />
     </View>
   );
 };

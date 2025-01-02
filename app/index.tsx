@@ -1,19 +1,12 @@
-import Home from "@/pages/home";
 import React from "react";
-import { SafeAreaView, View, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 
-const Landing = () => {
+const Home = () => {
   return (
-    <SafeAreaView style={style.container}>
-      <Home />
-    </SafeAreaView>
+    <View className="bg-emerald-800 h-screen w-screen">
+      <Text className="text-lg">HI!</Text>
+    </View>
   );
 };
 
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default Landing;
+export default Home;
